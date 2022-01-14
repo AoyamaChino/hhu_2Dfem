@@ -1,0 +1,59 @@
+#Generated with FemMesher,Department of Engineering Mechanics,Hohai University
+#Caution:IDs of Element,node,material and load step,all start at 0
+#周一 1月 10 2022,21:32:09
+*Node2d,9
+#nodeId,coor_x,coor_y
+      0     0     0
+      1     1     0
+      2     2     0
+      3     0     1
+      4     1     1
+      5     2     1
+      6     0     2
+      7     1     2
+      8     2     2
+*Element2d,4
+#EleId,N1,N2,N3,N4,StepId,MatId
+      0     0     1     4     3     0     0
+      1     1     2     5     4     0     0
+      2     3     4     7     6     0     0
+      3     4     5     8     7     0     0         
+*Material,2
+
+*seep
+#id,Kx(m/s),Ky(m/s),Kz(m/s),孔隙率,给水度
+0,1e-05,1e-05,1e-05,0.4,0
+1,1e-07,1e-07,1e-07,0.4,0
+
+*Common
+#id,材料名,容重(KN/m3),浮容重(KN/m3),是新筑土层,采用非线性
+0,0,21,12,0,0
+1,0,21,12,0,0
+
+*Slope_Dry
+#id,有效应力 c(KPa),有效应力 摩擦角(度),固结不排水 c(KPa),固结不排水 摩擦角(度),总应力 c(KPa),总应力 摩擦角(度),非线性Fi0(度),非线性dFi(度),施工期孔压系数,降落期孔压系数
+0,12,38,21,32,32,21,45,12,0,0
+1,12,38,21,32,32,21,45,12,0,0
+
+*Slope_Wet
+#id,_有效应力 c(KPa),_有效应力 摩擦角(度),_固结不排水 c(KPa),_固结不排水 摩擦角(度),_总应力 c(KPa),_总应力 摩擦角(度),_非线性Fi0(度),_非线性dFi(度),_施工期孔压系数,_降落期孔压系数
+0,12,38,21,32,32,21,45,12,0.8,0.8
+1,12,38,21,32,32,21,45,12,0.8,0.8
+
+*Deform
+#id,弹模(KPa),泊松比
+0,100000,0.3
+1,100000,0.3
+*BoundaryCondition
+*NodeConstraint
+#nodeId,xfixed,yfixed,step,xdisp,ydisp
+      0     1     1     0     0     0
+      1     0     1     0     0     0
+      2     0     1     0     0     0
+      3     1     0     0     0     0
+      6     1     0     0     0     0
+
+*Load
+#nodeId,Rx,Ry
+
+        8 0.00000 -1000.00000
